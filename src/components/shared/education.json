@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_educations",
+  "info": {
+    "displayName": "Education",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "about": {
+      "type": "blocks",
+      "required": true
+    },
+    "link": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    }
+  },
+  "config": {}
+}
