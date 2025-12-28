@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "projects",
+  "collectionName": "articles",
   "info": {
-    "singularName": "project",
-    "pluralName": "projects",
-    "displayName": "Project"
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article"
   },
   "options": {
     "draftAndPublish": true
@@ -15,36 +15,14 @@
     }
   },
   "attributes": {
-    "name": {
-      "type": "string",
+    "title": {
+      "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "required": true,
-      "unique": true
-    },
-    "banner": {
-      "type": "media",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
-    },
-    "about": {
-      "type": "blocks",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "required": true
     },
     "slug": {
       "type": "uid",
@@ -53,7 +31,7 @@
           "localized": true
         }
       },
-      "targetField": "name",
+      "targetField": "title",
       "required": true
     },
     "date": {
@@ -63,6 +41,15 @@
           "localized": true
         }
       }
+    },
+    "article": {
+      "type": "richtext",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     }
   }
 }

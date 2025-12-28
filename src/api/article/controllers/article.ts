@@ -1,10 +1,10 @@
 /**
- * project controller
+ * article controller
  */
 
 import { factories } from '@strapi/strapi';
 
-export default factories.createCoreController('api::project.project', ({ strapi }) => ({
+export default factories.createCoreController('api::article.article', ({ strapi }) => ({
   async findOne(ctx) {
     const { id } = ctx.params;
     const { query } = ctx;
@@ -13,25 +13,25 @@ export default factories.createCoreController('api::project.project', ({ strapi 
 
     // Проверяем, является ли id числом (обычный поиск по ID)
     if (!isNaN(Number(id))) {
-      entity = await strapi.entityService.findOne('api::project.project', Number(id), {
+      entity = await strapi.entityService.findOne('api::article.article', Number(id), {
         ...query,
       });
     } else {
       // Если id не число, ищем по slug
-      const entities = await strapi.entityService.findMany('api::project.project', {
+      const entities = await strapi.entityService.findMany('api::article.article', {
         filters: { slug: id },
         ...query,
       });
 
       if (!entities || entities.length === 0) {
-        return ctx.notFound('Project not found');
+        return ctx.notFound('Article not found');
       }
 
       entity = entities[0];
     }
 
     if (!entity) {
-      return ctx.notFound('Project not found');
+      return ctx.notFound('Article not found');
     }
 
     const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
