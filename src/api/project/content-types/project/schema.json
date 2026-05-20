@@ -15,6 +15,12 @@
     }
   },
   "attributes": {
+    "legacyId": {
+      "type": "string"
+    },
+    "sourceKey": {
+      "type": "string"
+    },
     "name": {
       "type": "string",
       "pluginOptions": {
@@ -22,8 +28,7 @@
           "localized": true
         }
       },
-      "required": true,
-      "unique": true
+      "required": true
     },
     "banner": {
       "type": "media",
@@ -58,6 +63,37 @@
     },
     "date": {
       "type": "date",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "techStack": {
+      "type": "json"
+    },
+    "link": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "githubUrl": {
+      "type": "string"
+    },
+    "demoUrl": {
+      "type": "string"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link-item",
       "pluginOptions": {
         "i18n": {
           "localized": true

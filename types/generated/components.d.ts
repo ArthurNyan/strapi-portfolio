@@ -15,10 +15,23 @@ export interface SharedEducation extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedLinkItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_link_items';
+  info: {
+    displayName: 'Link Item';
+    icon: 'link';
+  };
+  attributes: {
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.education': SharedEducation;
+      'shared.link-item': SharedLinkItem;
     }
   }
 }

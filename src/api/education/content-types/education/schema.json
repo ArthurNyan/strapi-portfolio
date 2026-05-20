@@ -15,6 +15,9 @@
     }
   },
   "attributes": {
+    "legacyId": {
+      "type": "string"
+    },
     "name": {
       "type": "string",
       "pluginOptions": {

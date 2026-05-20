@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_link_items",
+  "info": {
+    "displayName": "Link Item",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}
