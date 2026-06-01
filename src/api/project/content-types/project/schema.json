@@ -73,6 +73,16 @@
       "type": "boolean",
       "default": false
     },
+    "tags": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tag",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
     "techStack": {
       "type": "json"
     },

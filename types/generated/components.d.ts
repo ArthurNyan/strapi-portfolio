@@ -27,11 +27,23 @@ export interface SharedLinkItem extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTag extends Struct.ComponentSchema {
+  collectionName: 'components_shared_tags';
+  info: {
+    displayName: 'Tag';
+    icon: 'priceTag';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.education': SharedEducation;
       'shared.link-item': SharedLinkItem;
+      'shared.tag': SharedTag;
     }
   }
 }

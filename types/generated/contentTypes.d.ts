@@ -809,6 +809,12 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
         };
       }>;
     sourceKey: Schema.Attribute.String;
+    tags: Schema.Attribute.Component<'shared.tag', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     techStack: Schema.Attribute.JSON;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
