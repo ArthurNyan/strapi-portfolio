@@ -5,6 +5,23 @@
 import { factories } from '@strapi/strapi';
 
 export default factories.createCoreController('api::project.project', ({ strapi }) => ({
+  async find(ctx) {
+    const currentFilters =
+      ctx.query && typeof ctx.query.filters === 'object' && !Array.isArray(ctx.query.filters)
+        ? ctx.query.filters
+        : {};
+
+    ctx.query = {
+      ...ctx.query,
+      filters: {
+        ...currentFilters,
+        hidden: false,
+      },
+    };
+
+    return await super.find(ctx);
+  },
+
   async findOne(ctx) {
     const { id } = ctx.params;
     const { query } = ctx;
@@ -18,14 +35,17 @@ export default factories.createCoreController('api::project.project', ({ strapi 
       });
     } else {
       entity = await strapi.documents('api::project.project').findFirst({
-        filters: { slug: id },
+        filters: {
+          slug: id,
+          hidden: false,
+        },
         locale,
         status: 'published',
         populate: query.populate ?? '*',
       });
     }
 
-    if (!entity) {
+    if (!entity || entity.hidden) {
       return ctx.notFound('Project not found');
     }
 

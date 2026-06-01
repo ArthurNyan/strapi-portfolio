@@ -73,6 +73,10 @@
       "type": "boolean",
       "default": false
     },
+    "hidden": {
+      "type": "boolean",
+      "default": false
+    },
     "tags": {
       "type": "component",
       "repeatable": true,

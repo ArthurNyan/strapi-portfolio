@@ -775,6 +775,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     demoUrl: Schema.Attribute.String;
     featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     githubUrl: Schema.Attribute.String;
+    hidden: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     legacyId: Schema.Attribute.String;
     link: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
